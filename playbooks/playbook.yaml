@@ -1,0 +1,20 @@
+---
+
+- name: usando ansible valt
+  package: 
+   name: "{{item}}"
+  with_items:
+      - apache2 
+      - mysql 
+      - php 
+  when: ansible_os_family == "Debian"
+
+
+- name: usando ansible valt
+  package: 
+   name: "{{item}}"
+  with_items:
+      - httpd 
+      - mysql 
+      - php 
+  when: ansible_os_family == "RedHat"
