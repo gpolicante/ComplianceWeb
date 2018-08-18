@@ -1,20 +1,22 @@
 ---
-
-- name: usando ansible valt
-  package: 
-   name: "{{item}}"
-  with_items:
+- name: executando a playbook 
+  hosts: prod 
+  tasks:
+   - name: usando ansible valt
+     package: 
+      name: "{{item}}"
+     with_items:
       - apache2 
       - mysql 
       - php 
-  when: ansible_os_family == "Debian"
+     when: ansible_os_family == "Debian"
 
 
-- name: usando ansible valt
-  package: 
-   name: "{{item}}"
-  with_items:
+   - name: usando ansible valt
+     package: 
+      name: "{{item}}"
+     with_items:
       - httpd 
       - mysql 
       - php 
-  when: ansible_os_family == "RedHat"
+     when: ansible_os_family == "RedHat"
